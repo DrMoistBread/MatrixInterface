@@ -14,7 +14,7 @@ namespace MatrixInterface
         void Insert(T value);
         void Remove(T value); // removes all the value values in the Matrix
         void Remove(int x, int y); //removes the node on the cordinates (x,y)
-        T GetValueFrom(int x, int y);
+        T GetValueFrom(int x, int y); // gets the value from in the (x,y position)
         bool Exists(int x, int y);
         bool HasValue(T value);
 

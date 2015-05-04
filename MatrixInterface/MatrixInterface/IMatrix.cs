@@ -6,10 +6,18 @@ using System.Threading.Tasks;
 
 namespace MatrixInterface
 {
-    public interface IMatrix
+    public interface IMatrix<T>
     {
-        private String Teste = "";
-        private List<string> lol = new List<string>();
+        
+        INode<T> Node { get; set; }
+        INode<T> First { get; set; }
+        void Insert(T value);
+        void Remove(T value); // removes all the value values in the Matrix
+        void Remove(int x, int y); //removes the node on the cordinates (x,y)
+        T GetValueFrom(int x, int y);
+        bool Exists(int x, int y);
+        bool HasValue(T value);
+
     }
 }
 

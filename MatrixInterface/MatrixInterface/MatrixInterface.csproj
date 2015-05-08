@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\ElementNotFoundException.cs" />
+    <Compile Include="Exceptions\MatrixOutOfBoundsException.cs" />
     <Compile Include="IMatrix.cs" />
     <Compile Include="INode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

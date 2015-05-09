@@ -18,8 +18,8 @@ namespace MatrixInterface
         T GetElementFrom(int x, int y); // gets the value from in the (x,y) position
         bool Exists(int x, int y); // verifies is the is an element in the (x,y) position
         bool Exists(T element); // verifies is the element exist in the matrix
-        void expand(int slots);// expands the matrix in i slots
-        void expand(int x, int y);// expands x slot on the X axis and y slot on Y axis
+        void Expand(int slots);// expands the matrix in i slots
+        void Expand(int x, int y);// expands x slot on the X axis and y slot on Y axis
     }
 }
 

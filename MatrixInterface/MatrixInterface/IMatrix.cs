@@ -9,7 +9,7 @@ namespace MatrixInterface
     public interface IMatrix<T>
     {
         
-        INode<T> Node { get; set; } 
+        //INode<T> Node { get; set; } 
         INode<T> First { get; set; }
         void Insert(int x, int y, T element); // inserts element value in the (x,y) position 
         void Insert(T element); // iserts the elment in the first available slot

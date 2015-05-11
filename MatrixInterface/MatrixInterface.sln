@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40121.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixInterface", "MatrixInterface\MatrixInterface.csproj", "{C103E975-B92F-4D0A-8D7E-EAA05B07ECA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyBeautifulSandBox", "MyBeautifulSandBox\MyBeautifulSandBox.csproj", "{057ECB47-9E25-42F8-8527-4F8B9FFBDAB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C103E975-B92F-4D0A-8D7E-EAA05B07ECA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C103E975-B92F-4D0A-8D7E-EAA05B07ECA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C103E975-B92F-4D0A-8D7E-EAA05B07ECA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{057ECB47-9E25-42F8-8527-4F8B9FFBDAB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{057ECB47-9E25-42F8-8527-4F8B9FFBDAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{057ECB47-9E25-42F8-8527-4F8B9FFBDAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{057ECB47-9E25-42F8-8527-4F8B9FFBDAB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

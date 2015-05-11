@@ -11,6 +11,7 @@ namespace MatrixInterface
         
         //INode<T> Node { get; set; } 
         INode<T> First { get; set; }
+        int Length { get; }
         void Insert(int x, int y, T element); // inserts element value in the (x,y) position 
         void Insert(T element); // iserts the elment in the first available slot
         void Remove(T element); // removes all the value values in the Matrix
@@ -20,6 +21,9 @@ namespace MatrixInterface
         bool Exists(T element); // verifies is the element exist in the matrix
         void Expand(int slots);// expands the matrix in i slots
         void Expand(int x, int y);// expands x slot on the X axis and y slot on Y axis
+        void PrintBorder();
+        void PrintMatrix();
+
     }
 }
 

@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C103E975-B92F-4D0A-8D7E-EAA05B07ECA4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{057ECB47-9E25-42F8-8527-4F8B9FFBDAB1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MatrixInterface</RootNamespace>
-    <AssemblyName>MatrixInterface</AssemblyName>
+    <RootNamespace>MyBeautifulSandBox</RootNamespace>
+    <AssemblyName>MyBeautifulSandBox</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,14 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\ElementNotFoundException.cs" />
-    <Compile Include="Exceptions\MatrixOutOfBoundsException.cs" />
-    <Compile Include="IMatrix.cs" />
-    <Compile Include="Node\INode.cs" />
-    <Compile Include="MatrixTopBorder.cs" />
-    <Compile Include="Node\Node.cs" />
-    <Compile Include="Node\NullNode.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MatrixInterface\MatrixInterface.csproj">
+      <Project>{C103E975-B92F-4D0A-8D7E-EAA05B07ECA4}</Project>
+      <Name>MatrixInterface</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

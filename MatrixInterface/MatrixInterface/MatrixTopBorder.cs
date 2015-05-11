@@ -9,18 +9,65 @@ namespace MatrixInterface
     public class MatrixTopBorder<T>:IMatrix<T>
     {
         
-       public Matrix(){
-           First=0;
+       public MatrixTopBorder(){
+           First=null;
        }
        
        //dimension of the Matrix
-       public Matrix(int x, int y){
+       public MatrixTopBorder(int x, int y){
            
        }
        
        //creates a mew copy of the Matrix
-       public Matrix(IMatrix aMatrix){
+       public MatrixTopBorder(IMatrix<T> aMatrix){
            
        }
+
+        public INode<T> First { get; set; }
+
+        public void Insert(int x, int y, T element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insert(T element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(T element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remove(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public T GetElementFrom(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exists(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Exists(T element)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Expand(int slots)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Expand(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

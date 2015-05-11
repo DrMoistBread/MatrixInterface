@@ -12,5 +12,6 @@ namespace MatrixInterface
         int XValue { get; set; }
         int YValue { get; set; }
         Dictionary<string, INode<T>> Pointer { get; }
+        void SetPointer(string name, INode<T> node );
     }
 }

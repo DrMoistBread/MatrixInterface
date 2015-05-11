@@ -43,6 +43,7 @@
     <Compile Include="Exceptions\MatrixOutOfBoundsException.cs" />
     <Compile Include="IMatrix.cs" />
     <Compile Include="INode.cs" />
+    <Compile Include="MatrixTopBorder.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

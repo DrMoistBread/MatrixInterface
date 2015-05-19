@@ -8,11 +8,10 @@ using MatrixInterface.Node;
 
 namespace MatrixInterface
 {
-    public class MatrixTopBorder<T>:IMatrix<T>
+    public class MatrixTopBorder<T> : IMatrix<T>
     {
 
-        public int Length { get; private set; }
-
+       public int Length { get; private set; }
        public INode<T> First { get; set; }
     
        public MatrixTopBorder(){
@@ -28,7 +27,7 @@ namespace MatrixInterface
            aux.XValue = 0;
            First = aux;
 
-           for (int i = 1; i < width+1; i++)
+           for (int i = 1; i < width; i++)
            {
                INode<T> node = new Node<T>();
                node.YValue = -1;
@@ -37,6 +36,12 @@ namespace MatrixInterface
                aux.SetPointer("bottom", new NullNode<T>());
                aux = node;
            }
+
+           INode<T> endNode = new NullNode<T>();
+           endNode.XValue = -1;
+           endNode.YValue = -1;
+           aux.SetPointer("bottom", new NullNode<T>());
+           aux.SetPointer("right",endNode);
        }
        
        //creates a mew copy of the Matrix
@@ -50,27 +55,24 @@ namespace MatrixInterface
         public void Insert(int x, int y, T element)
         {
             INode<T> aux = First;
-            while (aux!=null)
+            while (aux.GetType() != typeof(NullNode<T>))
             {
                 if (aux.XValue == x)
                     break;
                 aux = aux.Pointer["right"];
             }
 
-            if (aux.Pointer["bottom"].GetType() != typeof(NullNode<T>)) 
+            if (aux.GetType() == typeof(NullNode<T>)) 
                 throw new MatrixOutOfBoundsException("The x inserted is greater than the width of the matrix");
 
             if(aux.Pointer.ContainsKey("bottom"))
                 while (aux.Pointer["bottom"].GetType() != typeof(NullNode<T>))
                 {
-                    if (aux.Pointer["bottom"].YValue < y)
+                    if (aux.Pointer["bottom"].YValue > y)
                         break;
 
                 }
             
-
-            if (aux == null) throw new MatrixOutOfBoundsException("The y inserted is greater than the length of the matrix");
-
             INode<T> newNode = new Node<T>();
             newNode.XValue = x;
             newNode.YValue = y;
@@ -100,30 +102,49 @@ namespace MatrixInterface
         public T GetElementFrom(int x, int y)
         {
             INode<T> aux = First;
-            while (aux != null)
+            while (aux.GetType() != typeof(NullNode<T>))
             {
                 if (aux.XValue == x)
                     break;
                 aux = aux.Pointer["right"];
             }
 
-            if (aux.Pointer["bottom"].GetType() == null)
+            if (aux.GetType() == typeof(NullNode<T>))
                 throw new MatrixOutOfBoundsException("The x inserted is greater than the width of the matrix");
 
             if (aux.Pointer.ContainsKey("bottom"))
                 while (aux.GetType() != typeof(NullNode<T>) && aux.YValue <= y)
                 {
-                    aux = aux.Pointer["pointer"];
+                    if (aux.YValue == y)
+                        return aux.Value;
+                    aux = aux.Pointer["bottom"];
+
                 }
-
-
-            if (aux.GetType() == typeof(NullNode<T>)) throw new MatrixOutOfBoundsException("The y inserted is greater than the length of the matrix");
-
+            throw new ElementNotFoundException(String.Format("There is no element in position ({0},{1})",x,y));
         }
 
         public bool Exists(int x, int y)
         {
-            throw new NotImplementedException();
+            INode<T> aux = First;
+            while (aux.GetType() != typeof(NullNode<T>))
+            {
+                if (aux.XValue == x)
+                    break;
+                aux = aux.Pointer["right"];
+            }
+
+            if (aux.GetType() == typeof(NullNode<T>))
+                throw new MatrixOutOfBoundsException("The x inserted is greater than the width of the matrix");
+
+            if (aux.Pointer.ContainsKey("bottom"))
+                while (aux.GetType() != typeof(NullNode<T>) && aux.YValue <= y)
+                {
+                    if (aux.YValue == y)
+                        return true;
+                    aux = aux.Pointer["bottom"];
+
+                }
+            return false;
         }
 
         public bool Exists(T element)
@@ -151,7 +172,8 @@ namespace MatrixInterface
 
                 foreach (var t in aux.Pointer)
                 {
-                    Console.WriteLine(t.Key+" ");
+                    Console.Write(t.Key+" ");
+                    Console.Write(t.Value.XValue); Console.WriteLine("");
                 }
                 aux = aux.Pointer["right"];
 

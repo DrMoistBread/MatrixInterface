@@ -13,7 +13,7 @@ namespace MatrixInterface
         public int XValue { get; set; }
         public int YValue { get; set; }
         public Dictionary<string, INode<T>> Pointer { get;  private set; }
-        public void SetPointer(string name, INode<T> node)
+        public void SetPointer(String name, INode<T> node)
         {
             Pointer.Add(name,node);
         }

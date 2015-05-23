@@ -14,6 +14,7 @@ namespace MatrixInterface
        public int Length { get; private set; }
        public INode<T> First { get; set; }
     
+
        public MatrixTopBorder(){
            First=null;
        }
@@ -27,7 +28,7 @@ namespace MatrixInterface
            aux.XValue = 0;
            First = aux;
 
-           for (int i = 1; i < width; i++)
+           for (int i = 1; i <= width; i++)
            {
                INode<T> node = new Node<T>();
                node.YValue = -1;
@@ -70,7 +71,7 @@ namespace MatrixInterface
                 {
                     if (aux.Pointer["bottom"].YValue > y)
                         break;
-
+                    aux = aux.Pointer["bottom"];
                 }
             
             INode<T> newNode = new Node<T>();
@@ -96,7 +97,31 @@ namespace MatrixInterface
 
         public void Remove(int x, int y)
         {
-            throw new NotImplementedException();
+            if (!Exists(x, y)) return;
+          
+                INode<T> aux = First;
+                while (aux.GetType() != typeof(NullNode<T>))
+                {
+                    if (aux.XValue == x)
+                        break;
+                    aux = aux.Pointer["right"];
+                }
+
+                if (aux.GetType() == typeof(NullNode<T>))
+                    throw new MatrixOutOfBoundsException("The x inserted is greater than the width of the matrix");
+
+                if (aux.Pointer.ContainsKey("bottom"))
+                    while (aux.Pointer["bottom"].GetType() != typeof(NullNode<T>) && aux.Pointer["bottom"].YValue <= y)
+                    {
+                        if (aux.Pointer["bottom"].YValue == y)
+                        {
+                            aux.Pointer["bottom"] = aux.Pointer["bottom"].Pointer["bottom"];
+                            break;
+                        }
+                        aux = aux.Pointer["bottom"];
+
+                    }
+           
         }
 
         public T GetElementFrom(int x, int y)
@@ -154,12 +179,32 @@ namespace MatrixInterface
 
         public void Expand(int slots)
         {
-            throw new NotImplementedException();
+
+            if (First.GetType() != typeof (NullNode<T>))
+            {
+                INode<T> auxNod = First;
+                while (auxNod.Pointer["right"].GetType() != typeof (NullNode<T>))
+                    auxNod = auxNod.Pointer["right"];
+
+                INode<T> nullNode = auxNod.Pointer["right"];
+              
+                for (int i = 1; i <=slots; i++)
+                {
+                    INode<T> node = new Node<T>();
+                    node.YValue = -1;
+                    node.XValue = i+Length;
+                    node.SetPointer("bottom", new NullNode<T>());
+                    auxNod.SetPointer("right", node);
+                    auxNod = node;
+                }
+                auxNod.SetPointer("right",nullNode);
+                Length += slots;
+            }
         }
 
         public void Expand(int x, int y)
         {
-            throw new NotImplementedException();
+           Expand(x);
         }
 
         public void PrintBorder()
@@ -183,7 +228,34 @@ namespace MatrixInterface
 
         public void PrintMatrix()
         {
-           
-        }
+            int maxHeight = -1;
+
+            for (INode<T> auxX = First;
+                auxX.GetType() != typeof (NullNode<T>);
+                auxX = auxX.Pointer["right"])
+            {
+                 INode<T> auxY = auxX;
+                while (auxY.Pointer["bottom"].GetType() != typeof (NullNode<T>))
+                {
+                    auxY = auxY.Pointer["bottom"];
+                }
+
+                if (auxY.YValue > maxHeight)
+                    maxHeight = auxY.YValue;
+            }
+
+            for (int y = 0; y <= maxHeight; y++)
+            {
+                for (int x = 0; x <=Length ; x++)
+                {
+                    if (Exists(x,y))
+                        Console.Write(GetElementFrom(x, y) + "\t");
+                    else
+                        Console.Write("0\t");
+                }
+                Console.WriteLine();
+            }
+
+    }
     }
 }

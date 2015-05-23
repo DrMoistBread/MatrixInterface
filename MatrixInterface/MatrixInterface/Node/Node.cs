@@ -15,7 +15,10 @@ namespace MatrixInterface
         public Dictionary<string, INode<T>> Pointer { get;  private set; }
         public void SetPointer(String name, INode<T> node)
         {
-            Pointer.Add(name,node);
+            if (Pointer.ContainsKey(name))
+                Pointer[name] = node;
+            else
+                Pointer.Add(name,node);
         }
 
         public Node()

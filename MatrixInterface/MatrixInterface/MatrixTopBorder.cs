@@ -14,11 +14,13 @@ namespace MatrixInterface
        public int Length { get; private set; }
        public INode<T> First { get; set; }
     
+
+        //creates a new empty nice beautiful matrix
        public MatrixTopBorder(){
-           First=null;
+           First= new NullNode<T>();
        }
        
-       //dimension of the Matrix
+       //creates a new matrix with the defined width 
        public MatrixTopBorder(int width)
        {
            Length = width;
@@ -44,13 +46,10 @@ namespace MatrixInterface
            aux.SetPointer("right",endNode);
        }
        
-       //creates a mew copy of the Matrix
+       //creates a new copy of the Matrix
        public MatrixTopBorder(IMatrix<T> aMatrix){
            
        }
-
-
-      
 
         public void Insert(int x, int y, T element)
         {

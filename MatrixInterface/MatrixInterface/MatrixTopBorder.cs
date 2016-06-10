@@ -117,7 +117,8 @@ namespace MatrixInterface
                 }
 
 
-            if (aux.GetType() == typeof(NullNode<T>)) throw new MatrixOutOfBoundsException("The y inserted is greater than the length of the matrix");
+            if (aux.GetType() == typeof(NullNode<T>)) 
+                throw new MatrixOutOfBoundsException("The y inserted is greater than the length of the matrix");
 
         }
 

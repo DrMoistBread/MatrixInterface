@@ -1,0 +1,4 @@
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MatrixInterface\bin\Debug\MatrixInterface.dll
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MatrixInterface\bin\Debug\MatrixInterface.pdb
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MatrixInterface\obj\Debug\MatrixInterface.dll
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MatrixInterface\obj\Debug\MatrixInterface.pdb

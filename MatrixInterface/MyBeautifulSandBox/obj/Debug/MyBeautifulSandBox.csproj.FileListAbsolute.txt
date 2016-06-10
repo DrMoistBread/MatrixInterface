@@ -1,0 +1,8 @@
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\bin\Debug\MyBeautifulSandBox.exe.config
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\bin\Debug\MyBeautifulSandBox.exe
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\bin\Debug\MyBeautifulSandBox.pdb
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\bin\Debug\MatrixInterface.dll
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\bin\Debug\MatrixInterface.pdb
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\obj\Debug\MyBeautifulSandBox.csprojResolveAssemblyReference.cache
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\obj\Debug\MyBeautifulSandBox.exe
+E:\Documents\GitHub\MatrixInterface\MatrixInterface\MyBeautifulSandBox\obj\Debug\MyBeautifulSandBox.pdb
